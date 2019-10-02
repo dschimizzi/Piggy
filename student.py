@@ -59,16 +59,18 @@ class Piggy(PiggyParent):
         # HIGHER - ORDERED
         for x in range (3):
             #self.moonwalk()
-            #self.Running man()
+            #self.Runningman()
             #self.dab()
             #self.sprinkler()
         
-        def self.moonwalk
-        '''back and forth'''
+    def self.moonwalk
+        '''reverse slowly''
             self.MOTOR_LEFT (-50)
             pass
             self.MOTOR_RIGHT(-50)
-        def 
+    def self.Runningman()
+        '''left right engins go forward and back''
+            self.MOTOR_LEFT(70)
 
     def scan(self):
         """Sweep the servo and populate the scan_data dictionary"""
