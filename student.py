@@ -62,16 +62,27 @@ class Piggy(PiggyParent):
             #self.Runningman()
             #self.dab()
             #self.sprinkler()
+    def dance(self)
+	    for i in range(4)
+		    self.turn_to_degree(0)
+		    time.sleep(1)
+		    self.stop()
+		    self.turn_to_degree(65)
+		    time.sleep(1)
+		    self.stop()
+		    self.servo(2000)
+		    time.sleep(.5)
+		    self.stop()
+		    self.turn_to_degree(90)
+		    time.sleep(.5)
+		    self.stop()
+		    self.servo(1000)
         
     def self.moonwalk
         '''reverse slowly''
             self.MOTOR_LEFT (-50)
             pass
             self.MOTOR_RIGHT(-50)
-    def self.Runningman()
-        '''left right engins go forward and back''
-            self.MOTOR_LEFT(70)
-
     def scan(self):
         """Sweep the servo and populate the scan_data dictionary"""
         for angle in range(self.MIDPOINT-350, self.MIDPOINT+350, 3):
