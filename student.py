@@ -77,8 +77,7 @@ class Piggy(PiggyParent):
 		    time.sleep(.5)
 		    self.stop()
 		    self.servo(1000)
-        
-    def self.moonwalk
+    '''def self.moonwalk
         '''reverse slowly''
             self.MOTOR_LEFT (-50)
             pass
