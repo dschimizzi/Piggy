@@ -94,9 +94,9 @@ class PiggyParent(gopigo3.GoPiGo3):
 elife goal < 0:
             goal += 360'''
 
-        #call turn to deg on the delta
+        '''#call turn to deg on the delta
         self.turn_to_deg(goal)
-        pass
+        pass'''
 
     def turn_to_deg(self, dog):
         # lower - ordered (Batman)
