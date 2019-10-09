@@ -91,7 +91,7 @@ class PiggyParent(gopigo3.GoPiGo3):
         # LOOP AROUND THE 360 marker
         if goal > 360:
             goal -= 360
-        elife goal < 0:
+         elife goal < 0:
             goal += 360
 
         #call turn to deg on the delta
