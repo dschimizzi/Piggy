@@ -58,30 +58,34 @@ class Piggy(PiggyParent):
         # print("I don't know how to dance. \nPlease give my programmer a zero.")
         # HIGHER - ORDERED
         for x in range (3):
+            self.cool_dance()
             #self.moonwalk()
             #self.Runningman()
             #self.dab()
             #self.sprinkler()
-    def cool dance(self)
-	for i in range(4)
-		self.turn_to_degree(0)
-	    time.sleep(1)
-	    self.stop()
-	    self.turn_to_degree(65)
-	    time.sleep(1)
-	    self.stop()
-	    self.servo(2000)
-	    time.sleep(.5)
-	    self.stop()
-	    self.turn_to_degree(90)
-	    time.sleep(.5)
-	    self.stop()
-	    self.servo(1000)
-    '''def self.moonwalk
-        '''reverse slowly''
-            self.MOTOR_LEFT (-50)
-            pass
-            self.MOTOR_RIGHT(-50)
+
+    def cool_dance(self):	
+        for i in range(4):
+            self.turn_to_degree(0)
+            time.sleep(1)
+            self.stop()
+            self.turn_to_degree(65)
+            time.sleep(1)
+            self.stop()
+            self.servo(2000)
+            time.sleep(.5)
+            self.stop()
+            self.turn_to_degree(90)
+            time.sleep(.5)
+            self.stop()
+            self.servo(1000)
+    
+    def moonwalk(self):
+        #reverse slowly''
+        self.MOTOR_LEFT(-50)
+        pass
+        self.MOTOR_RIGHT(-50)
+
     def scan(self):
         """Sweep the servo and populate the scan_data dictionary"""
         for angle in range(self.MIDPOINT-350, self.MIDPOINT+350, 3):
