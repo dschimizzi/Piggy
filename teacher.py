@@ -79,7 +79,7 @@ class PiggyParent(gopigo3.GoPiGo3):
         self.offset_motor_encoder(self.MOTOR_RIGHT, self.get_motor_encoder(self.MOTOR_RIGHT))
         self.set_motor_position(self.MOTOR_LEFT + self.MOTOR_RIGHT, deg)
 
-    def turn_by_deg(self, deg):
+    '''def turn_by_deg(self, deg):
         # higher - ordered (more complex but easier to read)
         # get our current location
         current = self.get_heading()
@@ -91,8 +91,8 @@ class PiggyParent(gopigo3.GoPiGo3):
         # LOOP AROUND THE 360 marker
         if goal > 360:
             goal -= 360
-'''elife goal < 0:'''
-            goal += 360
+elife goal < 0:
+            goal += 360'''
 
         #call turn to deg on the delta
         self.turn_to_deg(goal)
