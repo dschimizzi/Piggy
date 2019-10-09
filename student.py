@@ -62,7 +62,7 @@ class Piggy(PiggyParent):
             #self.Runningman()
             #self.dab()
             #self.sprinkler()
-    def dance(self)
+    def cool dance(self)
 	for i in range(4)
 		self.turn_to_degree(0)
 	    time.sleep(1)
