@@ -82,9 +82,11 @@ class Piggy(PiggyParent):
     
     def moonwalk(self):
         #reverse slowly''
-        self.MOTOR_LEFT(-50)
-        pass
-        self.MOTOR_RIGHT(-50)
+        for x in range(3):
+            self.back(left=-30)
+            time.sleep(.5)
+            self.back(right=-30)
+            time.sleep(.5)
 
     def scan(self):
         """Sweep the servo and populate the scan_data dictionary"""
