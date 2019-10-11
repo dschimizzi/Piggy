@@ -73,44 +73,45 @@ class PiggyParent(gopigo3.GoPiGo3):
     MOVEMENT
     '''
 
-    def deg_fwd(self, deg):
-        """Zeroes current encorder values then moves forward based on degrees given"""
-        self.offset_motor_encoder(self.MOTOR_LEFT, self.get_motor_encoder(self.MOTOR_LEFT))
-        self.offset_motor_encoder(self.MOTOR_RIGHT, self.get_motor_encoder(self.MOTOR_RIGHT))
-        self.set_motor_position(self.MOTOR_LEFT + self.MOTOR_RIGHT, deg)
-
     def turn_by_deg(self, deg):
-        # higher - ordered (more complex but easier to read)
-        # get our current location
+        """Rotates robot relative to it's current heading. If told -20, it
+        will rotate left by 20 degrees."""
+        # get our current angle
         current = self.get_heading()
-
-        # get our current location
-
+        
         # calculate delta
         goal = current + deg
         # LOOP AROUND THE 360 marker
-        if goal > 360:
-            goal -= 360
-        elif goal < 0:
-            goal += 360
-
-        #call turn to deg on the delta
+        goal %= 360
+​
+        # call turn to deg on the delta
         self.turn_to_deg(goal)
-        pass
-
-    def turn_to_deg(self, dog):
-        # lower - ordered (Batman)
-
-        #extra credit: TURN LEFT IF ITS MORE EFFICIENT
-
-        #while loop - keep turning until my gyro says I'm there
-        while(abs(deg - self.get_heading()) > 5):
-            self.right(primary=60, counter=-60)
-        self.stop()
-        print("I think I've turned correctly")
         
+​
+    def turn_to_deg(self, deg):
+        """Turns to a degree relative to the gyroscope's readings. If told 20, it
+        will rotate until the gyroscope reads 20."""
+​
+        # error check
+        goal = deg % 360
+        current = self.get_heading()
+​
+        turn = self.right  # connect it to the method without the () to activate
+        if (current - goal > 0 and current - goal < 180) or \
+            (current - goal < 0 and (360 - goal) + current < 180):
+            turn = self.left
+​
+        
+        # while loop - keep turning until my gyro says I'm there
+        while abs(deg - self.get_heading()) > 3:
+            turn(primary=70, counter=-70)
+​
+        # once out of the loop, hit the brakes
+        self.stop()
+        # report out to the user
+        print("\n{} is close enough to {}.\n".format(self.get_heading(), deg))
+​    
 
-        pass
 
     def fwd(self, left=50, right=50):
         """Blindly charges your robot forward at default power which needs to be configured in child class"""
