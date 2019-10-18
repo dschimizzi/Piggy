@@ -65,7 +65,7 @@ class Piggy(PiggyParent):
             #self.sprinkler()
 
     def cool_dance(self):	
-        for i in range(4):
+        for i in range(3):
             self.turn_by_deg(45)
             time.sleep(1)
             self.stop()
