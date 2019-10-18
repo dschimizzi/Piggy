@@ -58,10 +58,10 @@ class Piggy(PiggyParent):
         # print("I don't know how to dance. \nPlease give my programmer a zero.")
         # HIGHER - ORDERED
         for i in range (3):
-            self.cool_dance()
+            #self.cool_dance()
             self.moonwalk()
             #self.Runningman()
-            #self.dab()
+            self.dab()
             #self.sprinkler()
 
     '''def cool_dance(self):	
