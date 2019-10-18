@@ -59,7 +59,7 @@ class Piggy(PiggyParent):
         # HIGHER - ORDERED
         for i in range (3):
             self.cool_dance()
-            #self.moonwalk()
+            self.moonwalk()
             #self.Runningman()
             #self.dab()
             #self.sprinkler()
@@ -82,7 +82,7 @@ class Piggy(PiggyParent):
     
     def moonwalk(self):
         #reverse slowly''
-        for x in range(3):
+        for i in range(3):
             self.back(left=-30)
             time.sleep(.5)
             self.back(right=-30)
