@@ -64,7 +64,7 @@ class Piggy(PiggyParent):
             self.dab()
             #self.sprinkler()
 
-    '''def cool_dance(self):	
+    def cool_dance(self):	
         for i in range(4):
             self.turn_by_deg(45)
             time.sleep(1)
@@ -79,7 +79,7 @@ class Piggy(PiggyParent):
             time.sleep(.5)
             self.stop()
             self.servo(1000)
-            self.stop()'''
+            self.stop()
     
     def moonwalk(self):
         #reverse slowly''
@@ -98,7 +98,7 @@ class Piggy(PiggyParent):
             self.servo(1500)
             time.sleep(1)
             self.stop()
-            
+
     def scan(self):
         """Sweep the servo and populate the scan_data dictionary"""
         for angle in range(self.MIDPOINT-350, self.MIDPOINT+350, 3):
