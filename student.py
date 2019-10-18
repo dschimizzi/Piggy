@@ -58,9 +58,9 @@ class Piggy(PiggyParent):
         # print("I don't know how to dance. \nPlease give my programmer a zero.")
         # HIGHER - ORDERED
         for i in range (3):
-            #self.cool_dance()
+            self.cool_dance()
             self.moonwalk()
-            #self.Runningman()
+            self.Runningman()
             self.dab()
             #self.sprinkler()
 
@@ -81,6 +81,19 @@ class Piggy(PiggyParent):
             self.servo(1000)
             self.stop()
     
+    def Runningman(self):
+        for i in range(3):
+            self.turn_by_deg(90)
+            self.turn_by_deg(120)
+            self.back(left=40)
+            time.sleep(1)
+            self.stop()
+            self.turn_by_deg(90)
+            self.turn_by_deg(120)
+            self.back(left=40)
+            time.sleep(1)
+            self.stop()
+
     def moonwalk(self):
         #reverse slowly''
         for i in range(3):
