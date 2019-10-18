@@ -88,7 +88,8 @@ class Piggy(PiggyParent):
             time.sleep(.5)
             self.back(right=-30)
             time.sleep(.5)
-    def dab(self)
+
+    def dab(self):
         #servo back and forth
         for i in range (3):
             self.servo(2000)
@@ -97,6 +98,7 @@ class Piggy(PiggyParent):
             self.servo(1500)
             time.sleep(1)
             self.stop()
+            
     def scan(self):
         """Sweep the servo and populate the scan_data dictionary"""
         for angle in range(self.MIDPOINT-350, self.MIDPOINT+350, 3):
