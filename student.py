@@ -79,7 +79,7 @@ class Piggy(PiggyParent):
     def Runningman(self):
         print("\n ARE YOU READY FOR RUNNING MAN? \n")
         for i in range(3):
-            self.back(Primary=-100, Counter=-100)
+            self.back()
             time.sleep(1)
             self.stop()
             self.turn_by_deg(90)
@@ -92,9 +92,9 @@ class Piggy(PiggyParent):
         """reverse slowly"""
         print("\n Let's moonwalk, baybah! \n")
         for i in range(3):
-            self.back(left=-30)
+            self.back()
             time.sleep(.5)
-            self.back(right=-30)
+            self.back()
             time.sleep(.5)
 
     def dab(self):
