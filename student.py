@@ -79,7 +79,7 @@ class Piggy(PiggyParent):
     def Runningman(self):
         print("\n ARE YOU READY FOR RUNNING MAN? \n")
         for i in range(3):
-            self.back(primary=-100, counter=-100)
+            self.back(Primary=-100, Counter=-100)
             time.sleep(1)
             self.stop()
             self.turn_by_deg(90)
