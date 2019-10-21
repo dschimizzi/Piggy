@@ -65,23 +65,17 @@ class Piggy(PiggyParent):
             #self.sprinkler()
 
     def cool_dance(self):	
+        """turn right slowly"""
+        print("\n COOL DANCE!!! \n")
         for i in range(3):
             self.turn_by_deg(45)
-            time.sleep(1)
-            self.stop()
-            self.turn_by_deg(65)
-            time.sleep(1)
-            self.stop()
             self.servo(2000)
             time.sleep(.5)
-            self.stop()
-            self.turn_by_deg(90)
-            time.sleep(.5)
-            self.stop()
             self.servo(1000)
-            self.stop()
+            time.sleep(.5)
     
     def Runningman(self):
+        print("\n ARE YOU READY FOR RUNNING MAN? \n")
         for i in range(3):
             self.turn_by_deg(90)
             self.turn_by_deg(120)
@@ -95,7 +89,8 @@ class Piggy(PiggyParent):
             self.stop()
 
     def moonwalk(self):
-        #reverse slowly''
+        """reverse slowly"""
+        print("\n Let's moonwalk, baybah! \n")
         for i in range(3):
             self.back(left=-30)
             time.sleep(.5)
@@ -103,7 +98,7 @@ class Piggy(PiggyParent):
             time.sleep(.5)
 
     def dab(self):
-        #servo back and forth
+        """servo back and forth"""
         for i in range (3):
             self.servo(2000)
             time.sleep(1)
