@@ -92,9 +92,9 @@ class Piggy(PiggyParent):
         """moonwalk backwards in circle"""
         print("\n Let's moonwalk, baybah! \n")
         for i in range(3):
-            self.forward()
+            self.back()
             time.sleep(.5)
-            self.forward()
+            self.back()
             time.sleep(.5)
 
     def dab(self):
