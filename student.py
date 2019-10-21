@@ -68,8 +68,7 @@ class Piggy(PiggyParent):
         """turn right slowly"""
         print("\n COOL DANCE!!! \n")
         for i in range(3):
-            #self.turn_by_deg(45)
-            self.right(primary=100, counter=-100)
+            self.turn_by_deg(45)
             time.sleep(1)
             self.servo(2000)
             time.sleep(.5)
@@ -80,9 +79,7 @@ class Piggy(PiggyParent):
     def Runningman(self):
         print("\n ARE YOU READY FOR RUNNING MAN? \n")
         for i in range(3):
-            self.turn_by_deg(90)
-            self.turn_by_deg(120)
-            self.back(left=40)
+            self.back(left=-100, Right=-100)
             time.sleep(1)
             self.stop()
             self.turn_by_deg(90)
