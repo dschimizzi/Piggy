@@ -85,7 +85,10 @@ class Piggy(PiggyParent):
         print("\n COOL DANCE!!! \n")
         for i in range(3):
             self.turn_by_deg(45)
+            self.sleep(1)
+            self.back(1)
             time.sleep(1)
+            self.fwd(1)
             self.servo(2000)
             time.sleep(.5)
             self.servo(1000)
