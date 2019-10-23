@@ -122,6 +122,15 @@ class Piggy(PiggyParent):
             self.servo(1500)
             time.sleep(1)
             self.stop()
+    
+    def sprinkler(self):
+        """servo does sprinkler"""
+        for i in range(4):
+            for ang in range(1000, 2001, 100):
+                self.servo(ang)
+                time.sleep(.1)
+            self.turn_by_deg(90)
+
 
     def scan(self):
         """Sweep the servo and populate the scan_data dictionary"""
