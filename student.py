@@ -153,7 +153,7 @@ class Piggy(PiggyParent):
                 found_something = True
                 count += 1
                 print("\n Found something\n")
-            elif self.read_distance() > 250 and found_something:\
+            elif self.read_distance() > 250 and found_something:
                 found_something = False
                 print("We all good to go, nothing in my way")
         self.stop()
