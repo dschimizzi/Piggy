@@ -16,8 +16,8 @@ class Piggy(PiggyParent):
         ''' 
         MAGIC NUMBERS <-- where we hard-code our settings
         '''
-        self.LEFT_DEFAULT = 80
-        self.RIGHT_DEFAULT = 80
+        self.LEFT_DEFAULT = 100
+        self.RIGHT_DEFAULT = 100
         self.MIDPOINT = 1500  # what servo command (1000-2000) is straight forward for your bot?
         self.load_defaults()
         
@@ -149,7 +149,7 @@ class Piggy(PiggyParent):
         starting_position = self.get_heading()
         self.right(primary=30, counter=-30)
         while self.get_heading() != starting_position:
-            if self.read_distance() < 250 and not found_something:
+            if self.read_distance() < 350 and not found_something:
                 found_something = True
                 count += 1
                 print("\n Found something\n")
@@ -168,7 +168,7 @@ class Piggy(PiggyParent):
         # TODO: build self.quick_check() that does a fast, 3-part check instead of read_distance
         while True:
             self.servo(self.MIDPOINT)
-            while self.read_distance() > 250:  # TODO: fix this magic number
+            while self.read_distance() > 350 :  # TODO: fix this magic number
                 self.fwd()
                 time.sleep(.01)
             self.stop()
