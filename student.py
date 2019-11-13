@@ -202,7 +202,6 @@ class Piggy(PiggyParent):
                 self.turn_by_deg(-45)
             else:
                 self.turn_by_deg(45)
-        while True:
             
         
 
