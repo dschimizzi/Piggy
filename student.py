@@ -173,6 +173,9 @@ class Piggy(PiggyParent):
                 time.sleep(.01)
             self.stop()
             self.scan()
+            self.servo(75)
+            self.servo(75)
+            time.sleep(.01)
             # traversal
             left_total = 0
             left_count = 0
@@ -192,6 +195,7 @@ class Piggy(PiggyParent):
             else:
                 self.turn_by_deg(45)
         while True:
+
             
         
 
