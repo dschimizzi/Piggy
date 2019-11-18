@@ -170,7 +170,7 @@ class Piggy(PiggyParent):
                 return False
             # if I get to the end, this means I didnt find anything dangerous
         return True
-
+ 
     def nav(self):
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         print("-------- [ Press CTRL + C to stop me ] --------\n")
@@ -178,12 +178,21 @@ class Piggy(PiggyParent):
         
         # TODO: build self.quick_check() that does a fast, 3-part check instead of read_distance
         while True:
+             corner_count = 0
+        self.EXIT_HEADING = self.get_heading()
+        
+        while True:    
             self.servo(self.MIDPOINT)
-            while self.read_distance() > 350 :  # TODO: fix this magic number
+            while self.quick_check():
+                corner_count = 0
                 self.fwd()
                 time.sleep(.01)
             self.stop()
             self.scan()
+            # turns out of cornoer if stuck
+            corner_count += 1
+            if corner_count > 3:
+                self.turntoexit()
             # traversal
             left_total = 0
             left_count = 0
