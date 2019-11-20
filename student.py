@@ -16,8 +16,8 @@ class Piggy(PiggyParent):
         ''' 
         MAGIC NUMBERS <-- where we hard-code our settings
         '''
-        self.LEFT_DEFAULT = 70
-        self.RIGHT_DEFAULT = 70
+        self.LEFT_DEFAULT = 85
+        self.RIGHT_DEFAULT = 85
         #pro Level 
         self.SAFE_DIST = 350
         self.MIDPOINT = 1500  # what servo command (1000-2000) is straight forward for your bot?
@@ -139,7 +139,7 @@ class Piggy(PiggyParent):
 
     def scan(self):
         """Sweep the servo and populate the scan_data dictionary"""
-        for angle in range(self.MIDPOINT-350, self.MIDPOINT+350, 100):
+        for angle in range(self.MIDPOINT-350, self.MIDPOINT+350, 150):
             self.servo(angle)
             self.scan_data[angle] = self.read_distance()
 
