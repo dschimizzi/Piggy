@@ -191,7 +191,7 @@ class Piggy(PiggyParent):
             # turns out of cornoer if stuck
             corner_count += 1
             if corner_count > 3:
-                self.turntoexit()
+                self.turn_by_deg(180)
             # traversal
             left_total = 0
             left_count = 0
