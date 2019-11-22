@@ -150,7 +150,7 @@ class Piggy(PiggyParent):
         trigger_distance = 350
         count = 0
         starting_position = self.get_heading()
-        self.right(primary=30, counter=-30)
+        self.right(primary=60, counter=-60)
         while self.get_heading() != starting_position:
             if self.read_distance() < 350 and not found_something:
                 found_something = True
@@ -165,7 +165,7 @@ class Piggy(PiggyParent):
 
     def quick_check(self):
         # three quick checks
-        for ang in range(self.MIDPOINT-150, self.MIDPOINT+151,100):
+        for ang in range(self.MIDPOINT-150, self.MIDPOINT+151,200):
             self.servo(ang)
             if self.read_distance() < self.SAFE_DIST:
                 return False
