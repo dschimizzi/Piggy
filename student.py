@@ -40,6 +40,7 @@ class Piggy(PiggyParent):
         menu = {"n": ("Navigate", self.nav),
                 "d": ("Dance", self.dance),
                 "o": ("Obstacle count", self.obstacle_count),
+                "h": ("Hold position", self.hold_position),
                 "c": ("Calibrate", self.calibrate),
                 "q": ("Quit", self.quit)
                 }
@@ -50,7 +51,6 @@ class Piggy(PiggyParent):
         ans = str.lower(input("Your selection: "))
         # activate the item selected
         menu.get(ans, [None, self.quit])[1]()
-
     '''
     ****************
     STUDENT PROJECTS
@@ -149,9 +149,9 @@ class Piggy(PiggyParent):
         found_something = False # trigger
         trigger_distance = 350
         count = 0
-        starting_position = self.get_heading()
+        starting_position = self.Get_Heading()
         self.right(primary=60, counter=-60)
-        while self.get_heading() != starting_position:
+        while self.Get_Heading() != starting_position:
             if self.read_distance() < 350 and not found_something:
                 found_something = True
                 count += 1
@@ -179,7 +179,7 @@ class Piggy(PiggyParent):
         
         # TODO: build self.quick_check() that does a fast, 3-part check instead of read_distance
 
-        self.EXIT_HEADING = self.get_heading()
+        self.EXIT_HEADING = self.Get_Heading()
         
         while True:    
             self.servo(self.MIDPOINT)
@@ -192,7 +192,7 @@ class Piggy(PiggyParent):
             # turns out of cornoer if stuck
             corner_count += 1
             if corner_count > 3:
-                self.turn_to_deg(self.get_heading)
+                self.turn_to_deg(self.Get_Heading)
             # traversal
             left_total = 0
             left_count = 0
