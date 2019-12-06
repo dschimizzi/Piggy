@@ -16,7 +16,7 @@ class Piggy(PiggyParent):
         ''' 
         MAGIC NUMBERS <-- where we hard-code our settings
         '''
-        self.LEFT_DEFAULT = 80
+        self.LEFT_DEFAULT = 83
         self.RIGHT_DEFAULT = 80
         #pro Level        
         self.EXIT_HEADING = 0
@@ -140,7 +140,7 @@ class Piggy(PiggyParent):
 
     def scan(self):
         """Sweep the servo and populate the scan_data dictionary"""
-        for angle in range(self.MIDPOINT-450, self.MIDPOINT+450, 100):
+        for angle in range(self.MIDPOINT-450, self.MIDPOINT+450, 250):
             self.servo(angle)
             self.scan_data[angle] = self.read_distance()
 
@@ -150,7 +150,7 @@ class Piggy(PiggyParent):
 
     def quick_check(self):
         # three quick checks
-        for ang in range(self.MIDPOINT-250, self.MIDPOINT+251,100):
+        for ang in range(self.MIDPOINT-250, self.MIDPOINT+251,150):
             self.servo(ang)
             if self.read_distance() < self.SAFE_DIST:
                 return False
