@@ -16,9 +16,10 @@ class Piggy(PiggyParent):
         ''' 
         MAGIC NUMBERS <-- where we hard-code our settings
         '''
-        self.LEFT_DEFAULT = 100
-        self.RIGHT_DEFAULT = 100
-        #pro Level 
+        self.LEFT_DEFAULT = 80
+        self.RIGHT_DEFAULT = 80
+        #pro Level        
+        self.EXIT_HEADING = 0
         self.SAFE_DIST = 350
         self.MIDPOINT = 1500  # what servo command (1000-2000) is straight forward for your bot?
 
@@ -146,22 +147,7 @@ class Piggy(PiggyParent):
 
     def obstacle_count(self):
         """Does a 360 scan and returns the number of obstacles it sees"""
-        found_something = False # trigger
-        trigger_distance = 350
-        count = 0
-        starting_position = self.Get_Heading()
-        self.right(primary=60, counter=-60)
-        while self.Get_Heading() != starting_position:
-            if self.read_distance() < 350 and not found_something:
-                found_something = True
-                count += 1
-                print("\n Found something\n")
-            elif self.read_distance() > 250 and found_something:
-                found_something = False
-                print("We all good to go, nothing in my way")
-        self.stop()
-        print("I found this many things: %d" % count)
-        return count
+        pass
 
     def quick_check(self):
         # three quick checks
@@ -171,15 +157,25 @@ class Piggy(PiggyParent):
                 return False
             # if I get to the end, this means I didnt find anything dangerous
         return True
- 
+
+    def turn_to_exit(self):
+        start = self.get_heading()
+        self.turn_to_deg(self.EXIT_HEADING)
+        if not self.quick_check():
+            self.turn_to_deg(start)
+            return False
+        return True
+
+
+
     def nav(self):
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         print("-------- [ Press CTRL + C to stop me ] --------\n")
         print("-----------! NAVIGATION ACTIVATED !------------\n")
+        print("Wait a second. \nI can't navigate the maze at all. Please give my programmer a zero.")
         
-        # TODO: build self.quick_check() that does a fast, 3-part check instead of read_distance
-
-        self.EXIT_HEADING = self.Get_Heading()
+        corner_count = 0
+        self.EXIT_HEADING = self.get_heading()
         
         while True:    
             self.servo(self.MIDPOINT)
@@ -191,15 +187,16 @@ class Piggy(PiggyParent):
             self.scan()
             # turns out of cornoer if stuck
             corner_count += 1
-            if corner_count > 3:
-                self.turn_to_deg(self.Get_Heading)
-            # traversal
+            if corner_count == 3:
+                if not self.turn_to_exit():
+                    self.turn_by_deg(180)
+            #traversal
             left_total = 0
             left_count = 0
             right_total = 0
             right_count = 0
             for ang, dist in self.scan_data.items():
-                if ang < self.MIDPOINT:
+                if ang < self.MIDPOINT: 
                     right_total += dist
                     right_count += 1
                 else:
@@ -211,9 +208,6 @@ class Piggy(PiggyParent):
                 self.turn_by_deg(-45)
             else:
                 self.turn_by_deg(45)
-            
-        
-
 
         # TODO: Average the right side of the scan dict 
     
