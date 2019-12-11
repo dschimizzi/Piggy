@@ -16,8 +16,8 @@ class Piggy(PiggyParent):
         ''' 
         MAGIC NUMBERS <-- where we hard-code our settings
         '''
-        self.LEFT_DEFAULT = 83
-        self.RIGHT_DEFAULT = 80
+        self.LEFT_DEFAULT = 100
+        self.RIGHT_DEFAULT = 100
         #pro Level        
         self.EXIT_HEADING = 0
         self.SAFE_DIST = 250
@@ -181,7 +181,7 @@ class Piggy(PiggyParent):
         print("-----------! NAVIGATION ACTIVATED !------------\n")
         print("Wait a second. \nI can't navigate the maze at all. Please give my programmer a zero.")
         
-        corner_count = 0
+        corner_count = 3
         self.EXIT_HEADING = self.get_heading()
         
         while True:    
@@ -196,7 +196,7 @@ class Piggy(PiggyParent):
             corner_count += 1
             if corner_count == 3:
                 if not self.turn_to_exit():
-                    self.turn_by_deg(180)
+                    self.get_heading
             #traversal
             left_total = 0
             left_count = 0
