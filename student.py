@@ -63,7 +63,7 @@ class Piggy(PiggyParent):
         while True:
             time.sleep(.1)
             current_angle = self.get_heading()
-            if abs(started_at - current_angle) > 20:
+            if abs(started_at - current_angle) > 10:
                 self.turn_to_deg(started_at)
     def dance(self):
         #check to see its safe
