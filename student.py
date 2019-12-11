@@ -196,7 +196,7 @@ class Piggy(PiggyParent):
             corner_count += 1
             if corner_count == 3:
                 if not self.turn_to_exit():
-                    self.get_heading
+                    self.turn_by_deg(90)
             #traversal
             left_total = 0
             left_count = 0
@@ -212,8 +212,10 @@ class Piggy(PiggyParent):
             left_avg = left_total / left_count
             right_avg = right_total / right_count
             if left_avg > right_avg:
+                self.get_heading
                 self.turn_by_deg(-45)
             else:
+                self.get_heading
                 self.turn_by_deg(45)
 
         # TODO: Average the right side of the scan dict 
