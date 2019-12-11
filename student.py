@@ -41,6 +41,7 @@ class Piggy(PiggyParent):
         menu = {"n": ("Navigate", self.nav),
                 "d": ("Dance", self.dance),
                 "o": ("Obstacle count", self.obstacle_count),
+                "h": ("Hold Position", self.hold_position),
                 "c": ("Calibrate", self.calibrate),
                 "q": ("Quit", self.quit)
                 }
@@ -56,7 +57,14 @@ class Piggy(PiggyParent):
     STUDENT PROJECTS
     ****************
     '''
-
+    
+    def hold_position(self):
+        started_at = self.get_heading()
+        while True:
+            time.sleep(.1)
+            current_angle = self.get_heading()
+            if abs(started_at - current_angle) > 20:
+                self.turn_to_deg(started_at)
     def dance(self):
         #check to see its safe
         if not self.safe_to_dance():
