@@ -41,7 +41,7 @@ class Piggy(PiggyParent):
         menu = {"n": ("Navigate", self.nav),
                 "d": ("Dance", self.dance),
                 "o": ("Obstacle count", self.obstacle_count),
-                "V": ("Veer", self.slither),
+                "v": ("Veer", self.slither),
                 "h": ("Hold Position", self.hold_position),
                 "c": ("Calibrate", self.calibrate),
                 "q": ("Quit", self.quit)
@@ -173,7 +173,7 @@ class Piggy(PiggyParent):
             self.turn_to_deg(start)
             return False
         return True
-        
+
     def slither(self):
         """ practice a smooth veer """
         # write down where we started
